@@ -1,87 +1,54 @@
 package com.devsuperior.dsvendas.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import com.devsuperior.dsvendas.entities.Sale;
 
-public class SaleDTO {
+public class SaleDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private Integer visited;
-	private Integer deals;
-	private Double amount;
+	private int visited;
+	private int deals;
+	private double amount;
 	private LocalDate date;
+	private SellerDTO sellerDTO;
 
-	private SellerDTO seller;
-
-	public SaleDTO() {
-
+	public SaleDTO(Sale sale) {
+		id = sale.getId();
+		visited = sale.getVisited();
+		deals = sale.getDeals();
+		amount = sale.getAmount();
+		date = sale.getDate();
+		sellerDTO = new SellerDTO(sale.getSeller());
 	}
 
-	public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO seller) {
-		this.id = id;
-		this.visited = visited;
-		this.deals = deals;
-		this.amount = amount;
-		this.date = date;
-		this.seller = seller;
-	}
-
-	public SaleDTO(Sale entity) {
-		id = entity.getId();
-		visited = entity.getVisited();
-		deals = entity.getDeals();
-		amount = entity.getAmount();
-		date = entity.getDate();
-		seller = new SellerDTO(entity.getSeller());
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Integer getVisited() {
+	public int getVisited() {
 		return visited;
 	}
 
-	public void setVisited(Integer visited) {
-		this.visited = visited;
-	}
-
-	public Integer getDeals() {
+	public int getDeals() {
 		return deals;
 	}
 
-	public void setDeals(Integer deals) {
-		this.deals = deals;
-	}
-
-	public Double getAmount() {
+	public double getAmmount() {
 		return amount;
-	}
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
 	}
 
 	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public SellerDTO getSellerDTO() {
+		return sellerDTO;
 	}
-
-	public SellerDTO getSeller() {
-		return seller;
-	}
-
-	public void setSeller(SellerDTO seller) {
-		this.seller = seller;
-	}
-
 }

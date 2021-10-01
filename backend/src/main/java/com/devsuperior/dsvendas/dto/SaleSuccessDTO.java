@@ -22,6 +22,10 @@ public class SaleSuccessDTO implements Serializable {
 		this.deals = deals;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	public String getSellerName() {
 		return sellerName;
 	}
@@ -41,7 +45,7 @@ public class SaleSuccessDTO implements Serializable {
 	public Long getDeals() {
 		return deals;
 	}
-
+	
 	public void setDeals(Long deals) {
 		this.deals = deals;
 	}
