@@ -16,8 +16,10 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.service.Response;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
+@EnableSwagger2
 public class SwaggerConfig {
 	@Bean
 	public Docket api() {
@@ -28,8 +30,8 @@ public class SwaggerConfig {
 	}
 
 	public static ApiInfo metadata() {
-		return new ApiInfoBuilder().title("DSVendas").description("Projeto Spring React - DevSuperior")
-				.version("1.0.0").license("Apache License Version 2.0").licenseUrl("http://localhost:8080/swagger-ui/")
+		return new ApiInfoBuilder().title("DSVendas").description("Projeto Spring React - DevSuperior").version("1.0.0")
+				.license("Apache License Version 2.0").licenseUrl("http://localhost:8080/swagger-ui/")
 				.contact(contact()).build();
 	}
 
